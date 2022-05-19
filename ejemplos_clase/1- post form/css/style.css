@@ -1,0 +1,29 @@
+.section {
+  padding: 16px;
+}
+
+.containerForm {
+  max-width: 400px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.containerForm label {
+  padding-top: 16px;
+}
+
+.containerForm input {
+  font-size: 20px;
+  width: 100%;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
