@@ -1,15 +1,15 @@
 "use strict";
 
 console.log("----------------------------------------");
-console.log("HTTP POST de datos de un formulario (formData)");
+console.log("HTTP POST de datos JSON");
 
 const dominio = "https://inoveblog.herokuapp.com";
 
 const boton = document.querySelector("#publicar")
 boton.onclick = async () => {
     // Aquí comienza la operación para realizar el fetch
-    const usuario = config["usernamae"];
-    const apikey = config["apikey"];
+    const usuario = apiConfig["username"];
+    const apikey = apiConfig["apikey"];
     if(usuario == "" || apikey == "") {   
         alert("Indique usuario y apikey en el archivo de configuración");
         return;
@@ -17,7 +17,7 @@ boton.onclick = async () => {
 
     const titulo = document.querySelector("#titulo").value;
     const texto = document.querySelector("#texto").value;
-    data = {
+    const data = {
         usuario: usuario,
         apikey: apikey,
         titulo: titulo,
