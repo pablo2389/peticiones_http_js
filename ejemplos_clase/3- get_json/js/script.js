@@ -3,33 +3,26 @@
 console.log("----------------------------------------");
 console.log("HTTP GET de datos JSON");
 
-const dominio = "https://inoveblog.herokuapp.com";
+const dominio = "https://miblog.inovecode.com";
 
 const boton = document.querySelector("#consultar")
 boton.onclick = async () => {
+    // Borrar último mensaje de error:
+    document.querySelector("#error").textContent = "";
+
     // Aquí comienza la operación para realizar el fetch
-    const usuario = apiConfig["username"];
-    const apikey = apiConfig["apikey"];
-    if(usuario == "" || apikey == "") {   
-        alert("Indique usuario y apikey en el archivo de configuración");
+    const usuario = document.querySelector("#usuario").value;
+    if(usuario == "") {   
+        alert("Indique un usuario quese haya logeado al sistema");
         return;
     }
 
-    const params = { 
-        usuario: usuario,
-        apikey: apikey,
-    };
-    // armar la url completa con los parametros query
-    const query = Object.keys(params)
-                 .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
-                 .join('&');
-
-    const url = `${dominio}/api/v1.0/post`;
-    const resp = await fetch(url + "?" + query);
+    const url = `${dominio}/api/v1.0/posteos/${usuario}`;
+    const resp = await fetch(url);
     if(resp.ok) {
         const data = await resp.json();
-        const posteos = data["posts"];
-        console.log(posteos);
+        const posteos = data;
+        console.table(posteos);
 
         let accumulator = ""            
         posteos.forEach(posteo => {
@@ -46,6 +39,8 @@ boton.onclick = async () => {
         section.innerHTML = accumulator;
     } else {
         alert("Falló la petición");
+        const data = await resp.json();
+        document.querySelector("#error").textContent = data["detail"];
     }
 
 

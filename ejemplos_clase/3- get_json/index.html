@@ -13,10 +13,13 @@
     
   <article>
     <h1>GET JSON</h1>
-    <p>Complete sus datos en el archivo de configuración</p>
+    <p>Para usar esta API deberá indicar un usuario que se haya logeado al sistema</p>
     <div class="containerForm">
+      <label for="titulo"><b>Usuario</b></label>
+      <input id="usuario" type="text" value="" placeholder="usuario"/>
       <button id="consultar">Consultar posteos</button>
     </div>
+    <p id="error"></p>
     <section id="posteos">
 
     </section>

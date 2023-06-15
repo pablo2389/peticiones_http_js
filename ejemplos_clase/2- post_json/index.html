@@ -13,15 +13,18 @@
     
   <article>
     <h1>Post JSON</h1>
-    <p>Complete sus datos en el archivo de configuración</p>
+    <p>Para usar esta API deberá indicar un usuario que se haya logeado al sistema</p>
     <p>Indique el título y texto del posteo</p>
     <div class="containerForm">
+      <label for="titulo"><b>Usuario</b></label>
+      <input id="usuario" type="text" value="" placeholder="usuario"/>
       <label for="titulo"><b>Título</b></label>
-      <input id="titulo" type="text" value="" placeholder="usuario"/>
+      <input id="titulo" type="text" value="" placeholder="titulo de su posteo"/>
       <label for="texto"><b>Texto</b></label>
-      <textarea id="texto" name="texto" placeholder="escriba su post" rows=3 minlength=10 maxlength=300></textarea>
+      <textarea id="texto" name="texto" placeholder="escriba su posteo" rows=3 minlength=10 maxlength=300></textarea>
       <button id="publicar">Publicar</button>
     </div>
+    <p id="error"></p>
   </article>
 
   <script type="text/javascript" src="js/config.js"></script>

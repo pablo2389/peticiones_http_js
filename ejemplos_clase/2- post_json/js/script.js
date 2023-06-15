@@ -3,28 +3,28 @@
 console.log("----------------------------------------");
 console.log("HTTP POST de datos JSON");
 
-const dominio = "https://inoveblog.herokuapp.com";
+const dominio = "https://miblog.inovecode.com";
 
 const boton = document.querySelector("#publicar")
 boton.onclick = async () => {
+    // Borrar último mensaje de error:
+    document.querySelector("#error").textContent = "";
+
     // Aquí comienza la operación para realizar el fetch
-    const usuario = apiConfig["username"];
-    const apikey = apiConfig["apikey"];
-    if(usuario == "" || apikey == "") {   
-        alert("Indique usuario y apikey en el archivo de configuración");
+    const usuario = document.querySelector("#usuario").value;
+    if(usuario == "") {   
+        alert("Indique un usuario quese haya logeado al sistema");
         return;
     }
 
     const titulo = document.querySelector("#titulo").value;
     const texto = document.querySelector("#texto").value;
     const data = {
-        usuario: usuario,
-        apikey: apikey,
         titulo: titulo,
         texto: texto,
     }
 
-    const url = `${dominio}/api/v1.0/post`;
+    const url = `${dominio}/api/v1.0/posteos/${usuario}`;
     const resp = await fetch(url, {
             method: 'POST',
             headers: {
@@ -38,6 +38,8 @@ boton.onclick = async () => {
         alert(`Posteo ${data["titulo"]} efectuado con éxtiso con el ID=${data["id"]}`);
     } else {
         alert("Falló la petición");
+        const data = await resp.json();
+        document.querySelector("#error").textContent = data["detail"];
     }
 }
 
