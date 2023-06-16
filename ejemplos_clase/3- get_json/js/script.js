@@ -20,8 +20,7 @@ boton.onclick = async () => {
     const url = `${dominio}/api/v1.0/posteos/${usuario}`;
     const resp = await fetch(url);
     if(resp.ok) {
-        const data = await resp.json();
-        const posteos = data;
+        const posteos = await resp.json();
         console.table(posteos);
 
         let accumulator = ""            
