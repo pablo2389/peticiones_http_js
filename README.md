@@ -1,13 +1,24 @@
-![Inove banner](inove.jpg)
-Inove Escuela de Código\
-info@inove.com.ar\
-Web: [Inove](http://inove.com.ar)
+# Tarea
 
-# Peticiones HTTP! [Javascript]
-En este repositorio encontrarán las siguientes carpetas:
+## 1 - Enunciado
 
-__Ejemplos que el profesor mostrará en clase__\
-ejemplos_clase/
+- Debera capturar el evento "onclick" del boton "Consultar"
+y leer los datos ingresados en "personaje".
+- Tome esos datos y dentro del evento consulte los datos del
+  personaje con la API mediante fetch.
+- Ejemplo de la URL con la variable personaje:
+- * `https://rickandmortyapi.com/api/character/?name=${personaje}`
+- Capture los datos del personaje en un JSON e imprimalos en consola.
 
-# Consultas
-alumnos@inove.com.ar
+## 2 - Enunciado
+
+- Capture la información del personaje y preséntela en el HTML, puede
+  presentar la información como los ejemplos que se muestran en la página
+  de la API:
+
+![personaje_biblesuarus](personaje_biblesaurus.jpg)
+
+- Puede agregar o no estilos al HTML, o presentar la información de forma cruda (queda a su criterio y creatividad).
+
+##### Éxitos!
+
